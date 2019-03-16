@@ -79,7 +79,7 @@ deletenote(2)
                                    |    unused       |
                                    +-----------------+
                                    |  prev_size=0x60 |
-fake ptr[0] chunk's nextchunk----->+-----------------+
+  fake ptr[0] chunk's nextchunk--->+-----------------+
                                    |    64*'a'       |
                                    +-----------------+
                                    |    fakebk       |
