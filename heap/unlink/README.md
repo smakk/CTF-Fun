@@ -35,7 +35,7 @@ chunk ptr[0]'s nextchunk，这个是为了使得 unlink 时的第一个检查满
                                    |    unused       |
                                    +-----------------+
                                    |  prev_size=0x60 |
-fake ptr[0] chunk's nextchunk----->+-----------------+
+           ptr[0]'s nextchunk----->+-----------------+
                                    |    64*'a'       |
                                    +-----------------+
                                    |    fakebk       |
@@ -79,7 +79,7 @@ deletenote(2)
                                    |    unused       |
                                    +-----------------+
                                    |  prev_size=0x60 |
-  fake ptr[0] chunk's nextchunk--->+-----------------+
+             ptr[0]'s nextchunk--->+-----------------+
                                    |    64*'a'       |
                                    +-----------------+
                                    |    fakebk       |
