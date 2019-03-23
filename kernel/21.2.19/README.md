@@ -25,11 +25,10 @@ core.ko中存在這樣的問題：
 5. core_copy_func() 从全局变量 name 中拷贝数据到局部变量中，长度是由我们指定的，当要注意的是 qmemcpy 用的是 unsigned __int16，但传递的长度是 signed __int64，因此如果控制传入的长度为 0xffffffffffff0000|(0x100) 等值，就可以栈溢出了
 6. core_write() 向全局变量 name 上写，这样通过 core_write() 和 core_copy_func() 就可以控制 ropchain 了
 ## 解答
-通过 ioctl 设置 off，然后通过 core_read() leak 出 canary
-通过 core_write() 向 name 写，构造 ropchain
-通过 core_copy_func() 从 name 向局部变量上写，通过设置合理的长度和 canary 进行 rop
-通过 rop 执行 commit_creds(prepare_kernel_cred(0))
-返回用户态，通过 system("/bin/sh") 等起 shell
+1、先讀取/tmp/kallsyms獲得commit_creds和prepare_kernel_cred的地址
+2、讀取canary,core.ko中的讀取操作會讀取64個byte到用戶空間，但是起始地址off是可控制的
+3、通過緩衝區溢出來執行ROP，ROP時需要使用pwntools中的ELF算出vmlinux的加載虛擬地址
+4、ROP執行的內容包括執行commit_creds(prepare_kernel_cred(0))函數，然後使用iret返回用戶態，其中，EIP指針的值要設置爲用戶態的生成shell的代碼入口地址
 ## 總結
 ### /proc/kallsyms
 kallsyms抽取了内核用到的所有函数地址(全局的、静态的)和非栈数据变量地址，生成一个数据块，類似與System.map，System.map是磁盘中真实存在的文件，存储内核中静态编译的函数和变量地址，每个新编译内核对应一个System.map文件，当klogd输出内核消息时，会通过/boot/System.map来将函数、变量地址转换为名称，方便用户理解。该文件对应不同的编译内核有对应的实现文件。**區別在於kallsyms是動態的，包含了增加模塊的符號**
