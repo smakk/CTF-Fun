@@ -22,7 +22,10 @@ find . | cpio -o --format=newc > rootfs.cpio
 ./boot.sh
 ```
 ### vmlinux
-静态编译，未经过压缩的 kernel 文件，可以用來提取gadget
+静态编译，未经过压缩的 kernel 文件，可以用來提取gadget，如果題目沒有給出，可以使用extract-vmlinux來解壓，extract-vmlinux是linux/script中的一個腳本
+```
+./extract-vmlinux ./bzImage > vmlinux
+```
 ## 內核符號
 ### /proc/kallsyms和System.map
 kallsyms抽取了内核用到的所有函数地址(全局的、静态的)和非栈数据变量地址，生成一个数据块，類似與System.map，System.map是磁盘中真实存在的文件，存储内核中静态编译的函数和变量地址，每个新编译内核对应一个System.map文件，当klogd输出内核消息时，会通过/boot/System.map来将函数、变量地址转换为名称，方便用户理解。该文件对应不同的编译内核有对应的实现文件。**區別在於kallsyms是動態的，包含了增加模塊的符號**
@@ -118,3 +121,31 @@ x64：System V AMD64 ABI (Linux、FreeBSD、macOS 等采用) 中前六个整型�
 ```
 $ ropper --file <afile> --semantic "<any constraint>"
 ```
+生成文件之後直接在文件中尋找關鍵字就可以了
+## gdb調試
+qemu 内置有 gdb 的接口，即可以通过 -gdb tcp:port 或者 -s 来开启调试端口
+另外通过 gdb ./vmlinux 启动时，虽然加载了 kernel 的符号表，但没有加载驱动 *.ko 的符号表，可以通过 add-symbol-file *.ko textaddr 加载
+比如以21.2.19這個例子來說，通過下面的命令來啓動內核：
+```
+gdb ./vmlinux -q
+```
+通過下面的命令加載core.ko的符號表：
+```
+add-symbol-file ./core.ko 0xffffffffc018b000
+```
+其中0xffffffffc018b000這個地址需要在qemu中獲得，在這個例子中，更改init進程，修改啓動時/bin/sh的setuidgid數值爲0，這樣/bin/sh啓動的時候就是root權限，可以通過觀察/sys/modules/core/section/.text來得到core.ko在系統中的代碼段地址：
+```
+/ # cat /sys/module/core/sections/.text 
+```
+接着在下斷點，可以使用符號來下斷點，也可以使用內存地址來下斷點：
+```
+pwndbg> b core_read
+pwndbg> b *(0xffffffffc018b000+0xCC)
+```
+啓動遠程連接：
+```
+target remote localhost:1234
+```
+
+
+
