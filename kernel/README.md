@@ -10,7 +10,7 @@ mkdir ./tmp
 cd ./tmp
 cp ../.cpio *.cpio.gz 
 gunzip *.cpio.gz  #會得到一個*.cpio文件
-cpio -idm *.cpio.gz #最終在/tmp目錄下會解壓出所有的內容，-d表示會自行建立目錄，-m表示不更改時間戳
+cpio -idm < *.cpio.gz #最終在/tmp目錄下會解壓出所有的內容，-d表示會自行建立目錄，-m表示不更改時間戳
 ```
 當完成exp編寫之後，需要將新的exp打包到cpio文件中，這樣新啓動的系統中才會包含利用代碼
 ```
@@ -146,6 +146,10 @@ pwndbg> b *(0xffffffffc018b000+0xCC)
 ```
 target remote localhost:1234
 ```
-
+## qemu啓動參數
+直接查看
+```
+qemu-system-x86_64 --help
+```
 
 
