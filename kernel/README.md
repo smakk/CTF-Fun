@@ -37,6 +37,7 @@ kptr_restrict = 0	root和普通用户都可以读取
 /proc/kallsyms的文件格式如下：
 地址		類型		名稱
 ### 通過讀取/proc/kallsyms獲得符號信息
+當內核開啓了KASLR的時候，內核加載到系統中的位置是變動的，無法獲取到內核的函數位置，這時可以通過讀取符號表來進行函數位置的確定。
 假設現在可以讀取/proc/kallsyms文件，簡單一段程序來讀取需要函數的地址，用來做ROP
 ```
 #include <stdlib.h>
