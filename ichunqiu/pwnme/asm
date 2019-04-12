@@ -1,0 +1,572 @@
+
+./pwnme:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+00000000004006d0 <.init>:
+  4006d0:	48 83 ec 08          	sub    $0x8,%rsp
+  4006d4:	48 8b 05 fd 18 20 00 	mov    0x2018fd(%rip),%rax        # 601fd8 <stdout-0x38>
+  4006db:	48 85 c0             	test   %rax,%rax
+  4006de:	74 05                	je     4006e5 <stdout-0x20192b>
+  4006e0:	e8 5b 00 00 00       	callq  400740 <stdout-0x2018d0>
+  4006e5:	48 83 c4 08          	add    $0x8,%rsp
+  4006e9:	c3                   	retq   
+
+Disassembly of section .plt:
+
+00000000004006f0 <.plt>:
+  4006f0:	ff 35 92 18 20 00    	pushq  0x201892(%rip)        # 601f88 <stdout-0x88>
+  4006f6:	ff 25 94 18 20 00    	jmpq   *0x201894(%rip)        # 601f90 <stdout-0x80>
+  4006fc:	0f 1f 40 00          	nopl   0x0(%rax)
+
+Disassembly of section .plt.got:
+
+0000000000400700 <.plt.got>:
+  400700:	ff 25 92 18 20 00    	jmpq   *0x201892(%rip)        # 601f98 <stdout-0x78>
+  400706:	66 90                	xchg   %ax,%ax
+  400708:	ff 25 92 18 20 00    	jmpq   *0x201892(%rip)        # 601fa0 <stdout-0x70>
+  40070e:	66 90                	xchg   %ax,%ax
+  400710:	ff 25 92 18 20 00    	jmpq   *0x201892(%rip)        # 601fa8 <stdout-0x68>
+  400716:	66 90                	xchg   %ax,%ax
+  400718:	ff 25 92 18 20 00    	jmpq   *0x201892(%rip)        # 601fb0 <stdout-0x60>
+  40071e:	66 90                	xchg   %ax,%ax
+  400720:	ff 25 92 18 20 00    	jmpq   *0x201892(%rip)        # 601fb8 <stdout-0x58>
+  400726:	66 90                	xchg   %ax,%ax
+  400728:	ff 25 92 18 20 00    	jmpq   *0x201892(%rip)        # 601fc0 <stdout-0x50>
+  40072e:	66 90                	xchg   %ax,%ax
+  400730:	ff 25 92 18 20 00    	jmpq   *0x201892(%rip)        # 601fc8 <stdout-0x48>
+  400736:	66 90                	xchg   %ax,%ax
+  400738:	ff 25 92 18 20 00    	jmpq   *0x201892(%rip)        # 601fd0 <stdout-0x40>
+  40073e:	66 90                	xchg   %ax,%ax
+  400740:	ff 25 92 18 20 00    	jmpq   *0x201892(%rip)        # 601fd8 <stdout-0x38>
+  400746:	66 90                	xchg   %ax,%ax
+  400748:	ff 25 92 18 20 00    	jmpq   *0x201892(%rip)        # 601fe0 <stdout-0x30>
+  40074e:	66 90                	xchg   %ax,%ax
+  400750:	ff 25 92 18 20 00    	jmpq   *0x201892(%rip)        # 601fe8 <stdout-0x28>
+  400756:	66 90                	xchg   %ax,%ax
+  400758:	ff 25 92 18 20 00    	jmpq   *0x201892(%rip)        # 601ff0 <stdout-0x20>
+  40075e:	66 90                	xchg   %ax,%ax
+  400760:	ff 25 92 18 20 00    	jmpq   *0x201892(%rip)        # 601ff8 <stdout-0x18>
+  400766:	66 90                	xchg   %ax,%ax
+
+Disassembly of section .text:
+
+0000000000400770 <.text>:
+  400770:	31 ed                	xor    %ebp,%ebp
+  400772:	49 89 d1             	mov    %rdx,%r9
+  400775:	5e                   	pop    %rsi
+  400776:	48 89 e2             	mov    %rsp,%rdx
+  400779:	48 83 e4 f0          	and    $0xfffffffffffffff0,%rsp
+  40077d:	50                   	push   %rax
+  40077e:	54                   	push   %rsp
+  40077f:	49 c7 c0 e0 0e 40 00 	mov    $0x400ee0,%r8
+  400786:	48 c7 c1 70 0e 40 00 	mov    $0x400e70,%rcx
+  40078d:	48 c7 c7 96 0d 40 00 	mov    $0x400d96,%rdi
+  400794:	e8 9f ff ff ff       	callq  400738 <stdout-0x2018d8>
+  400799:	f4                   	hlt    
+  40079a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+  4007a0:	b8 17 20 60 00       	mov    $0x602017,%eax
+  4007a5:	55                   	push   %rbp
+  4007a6:	48 2d 10 20 60 00    	sub    $0x602010,%rax
+  4007ac:	48 83 f8 0e          	cmp    $0xe,%rax
+  4007b0:	48 89 e5             	mov    %rsp,%rbp
+  4007b3:	76 1b                	jbe    4007d0 <stdout-0x201840>
+  4007b5:	b8 00 00 00 00       	mov    $0x0,%eax
+  4007ba:	48 85 c0             	test   %rax,%rax
+  4007bd:	74 11                	je     4007d0 <stdout-0x201840>
+  4007bf:	5d                   	pop    %rbp
+  4007c0:	bf 10 20 60 00       	mov    $0x602010,%edi
+  4007c5:	ff e0                	jmpq   *%rax
+  4007c7:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+  4007ce:	00 00 
+  4007d0:	5d                   	pop    %rbp
+  4007d1:	c3                   	retq   
+  4007d2:	0f 1f 40 00          	nopl   0x0(%rax)
+  4007d6:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
+  4007dd:	00 00 00 
+  4007e0:	be 10 20 60 00       	mov    $0x602010,%esi
+  4007e5:	55                   	push   %rbp
+  4007e6:	48 81 ee 10 20 60 00 	sub    $0x602010,%rsi
+  4007ed:	48 c1 fe 03          	sar    $0x3,%rsi
+  4007f1:	48 89 e5             	mov    %rsp,%rbp
+  4007f4:	48 89 f0             	mov    %rsi,%rax
+  4007f7:	48 c1 e8 3f          	shr    $0x3f,%rax
+  4007fb:	48 01 c6             	add    %rax,%rsi
+  4007fe:	48 d1 fe             	sar    %rsi
+  400801:	74 15                	je     400818 <stdout-0x2017f8>
+  400803:	b8 00 00 00 00       	mov    $0x0,%eax
+  400808:	48 85 c0             	test   %rax,%rax
+  40080b:	74 0b                	je     400818 <stdout-0x2017f8>
+  40080d:	5d                   	pop    %rbp
+  40080e:	bf 10 20 60 00       	mov    $0x602010,%edi
+  400813:	ff e0                	jmpq   *%rax
+  400815:	0f 1f 00             	nopl   (%rax)
+  400818:	5d                   	pop    %rbp
+  400819:	c3                   	retq   
+  40081a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+  400820:	80 3d 01 18 20 00 00 	cmpb   $0x0,0x201801(%rip)        # 602028 <stdin+0x8>
+  400827:	75 11                	jne    40083a <stdout-0x2017d6>
+  400829:	55                   	push   %rbp
+  40082a:	48 89 e5             	mov    %rsp,%rbp
+  40082d:	e8 6e ff ff ff       	callq  4007a0 <stdout-0x201870>
+  400832:	5d                   	pop    %rbp
+  400833:	c6 05 ee 17 20 00 01 	movb   $0x1,0x2017ee(%rip)        # 602028 <stdin+0x8>
+  40083a:	f3 c3                	repz retq 
+  40083c:	0f 1f 40 00          	nopl   0x0(%rax)
+  400840:	bf b8 1d 60 00       	mov    $0x601db8,%edi
+  400845:	48 83 3f 00          	cmpq   $0x0,(%rdi)
+  400849:	75 05                	jne    400850 <stdout-0x2017c0>
+  40084b:	eb 93                	jmp    4007e0 <stdout-0x201830>
+  40084d:	0f 1f 00             	nopl   (%rax)
+  400850:	b8 00 00 00 00       	mov    $0x0,%eax
+  400855:	48 85 c0             	test   %rax,%rax
+  400858:	74 f1                	je     40084b <stdout-0x2017c5>
+  40085a:	55                   	push   %rbp
+  40085b:	48 89 e5             	mov    %rsp,%rbp
+  40085e:	ff d0                	callq  *%rax
+  400860:	5d                   	pop    %rbp
+  400861:	e9 7a ff ff ff       	jmpq   4007e0 <stdout-0x201830>
+  400866:	55                   	push   %rbp
+  400867:	48 89 e5             	mov    %rsp,%rbp
+  40086a:	bf f8 0e 40 00       	mov    $0x400ef8,%edi
+  40086f:	e8 9c fe ff ff       	callq  400710 <stdout-0x201900>
+  400874:	bf 28 0f 40 00       	mov    $0x400f28,%edi
+  400879:	e8 92 fe ff ff       	callq  400710 <stdout-0x201900>
+  40087e:	bf 58 0f 40 00       	mov    $0x400f58,%edi
+  400883:	e8 88 fe ff ff       	callq  400710 <stdout-0x201900>
+  400888:	bf 28 0f 40 00       	mov    $0x400f28,%edi
+  40088d:	e8 7e fe ff ff       	callq  400710 <stdout-0x201900>
+  400892:	bf f8 0e 40 00       	mov    $0x400ef8,%edi
+  400897:	e8 74 fe ff ff       	callq  400710 <stdout-0x201900>
+  40089c:	48 8b 05 6d 17 20 00 	mov    0x20176d(%rip),%rax        # 602010 <stdout>
+  4008a3:	48 89 c7             	mov    %rax,%rdi
+  4008a6:	e8 ad fe ff ff       	callq  400758 <stdout-0x2018b8>
+  4008ab:	90                   	nop
+  4008ac:	5d                   	pop    %rbp
+  4008ad:	c3                   	retq   
+  4008ae:	55                   	push   %rbp
+  4008af:	48 89 e5             	mov    %rsp,%rbp
+  4008b2:	48 83 ec 20          	sub    $0x20,%rsp
+  4008b6:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+  4008ba:	bf 87 0f 40 00       	mov    $0x400f87,%edi
+  4008bf:	e8 4c fe ff ff       	callq  400710 <stdout-0x201900>
+  4008c4:	bf a0 0f 40 00       	mov    $0x400fa0,%edi
+  4008c9:	e8 42 fe ff ff       	callq  400710 <stdout-0x201900>
+  4008ce:	48 8b 05 3b 17 20 00 	mov    0x20173b(%rip),%rax        # 602010 <stdout>
+  4008d5:	48 89 c7             	mov    %rax,%rdi
+  4008d8:	e8 7b fe ff ff       	callq  400758 <stdout-0x2018b8>
+  4008dd:	ba 28 00 00 00       	mov    $0x28,%edx
+  4008e2:	48 8d 75 10          	lea    0x10(%rbp),%rsi
+  4008e6:	bf 00 00 00 00       	mov    $0x0,%edi
+  4008eb:	e8 40 fe ff ff       	callq  400730 <stdout-0x2018e0>
+  4008f0:	88 45 ff             	mov    %al,-0x1(%rbp)
+  4008f3:	80 7d ff 00          	cmpb   $0x0,-0x1(%rbp)
+  4008f7:	74 06                	je     4008ff <stdout-0x201711>
+  4008f9:	80 7d ff 28          	cmpb   $0x28,-0x1(%rbp)
+  4008fd:	76 53                	jbe    400952 <stdout-0x2016be>
+  4008ff:	0f b6 05 be 06 00 00 	movzbl 0x6be(%rip),%eax        # 400fc4 <stdout-0x20104c>
+  400906:	88 45 10             	mov    %al,0x10(%rbp)
+  400909:	bf c8 0f 40 00       	mov    $0x400fc8,%edi
+  40090e:	e8 fd fd ff ff       	callq  400710 <stdout-0x201900>
+  400913:	48 8b 05 f6 16 20 00 	mov    0x2016f6(%rip),%rax        # 602010 <stdout>
+  40091a:	48 89 c7             	mov    %rax,%rdi
+  40091d:	e8 36 fe ff ff       	callq  400758 <stdout-0x2018b8>
+  400922:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  400926:	48 8b 55 10          	mov    0x10(%rbp),%rdx
+  40092a:	48 89 10             	mov    %rdx,(%rax)
+  40092d:	48 8b 55 18          	mov    0x18(%rbp),%rdx
+  400931:	48 89 50 08          	mov    %rdx,0x8(%rax)
+  400935:	48 8b 55 20          	mov    0x20(%rbp),%rdx
+  400939:	48 89 50 10          	mov    %rdx,0x10(%rax)
+  40093d:	48 8b 55 28          	mov    0x28(%rbp),%rdx
+  400941:	48 89 50 18          	mov    %rdx,0x18(%rax)
+  400945:	48 8b 55 30          	mov    0x30(%rbp),%rdx
+  400949:	48 89 50 20          	mov    %rdx,0x20(%rax)
+  40094d:	e9 c8 00 00 00       	jmpq   400a1a <stdout-0x2015f6>
+  400952:	bf e8 0f 40 00       	mov    $0x400fe8,%edi
+  400957:	e8 b4 fd ff ff       	callq  400710 <stdout-0x201900>
+  40095c:	48 8b 05 ad 16 20 00 	mov    0x2016ad(%rip),%rax        # 602010 <stdout>
+  400963:	48 89 c7             	mov    %rax,%rdi
+  400966:	e8 ed fd ff ff       	callq  400758 <stdout-0x2018b8>
+  40096b:	48 8d 45 24          	lea    0x24(%rbp),%rax
+  40096f:	ba 28 00 00 00       	mov    $0x28,%edx
+  400974:	48 89 c6             	mov    %rax,%rsi
+  400977:	bf 00 00 00 00       	mov    $0x0,%edi
+  40097c:	e8 af fd ff ff       	callq  400730 <stdout-0x2018e0>
+  400981:	88 45 fe             	mov    %al,-0x2(%rbp)
+  400984:	80 7d fe 00          	cmpb   $0x0,-0x2(%rbp)
+  400988:	75 56                	jne    4009e0 <stdout-0x201630>
+  40098a:	80 7d fe 28          	cmpb   $0x28,-0x2(%rbp)
+  40098e:	76 50                	jbe    4009e0 <stdout-0x201630>
+  400990:	0f b6 05 2d 06 00 00 	movzbl 0x62d(%rip),%eax        # 400fc4 <stdout-0x20104c>
+  400997:	88 45 10             	mov    %al,0x10(%rbp)
+  40099a:	bf 10 10 40 00       	mov    $0x401010,%edi
+  40099f:	e8 6c fd ff ff       	callq  400710 <stdout-0x201900>
+  4009a4:	48 8b 05 65 16 20 00 	mov    0x201665(%rip),%rax        # 602010 <stdout>
+  4009ab:	48 89 c7             	mov    %rax,%rdi
+  4009ae:	e8 a5 fd ff ff       	callq  400758 <stdout-0x2018b8>
+  4009b3:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  4009b7:	48 8b 55 10          	mov    0x10(%rbp),%rdx
+  4009bb:	48 89 10             	mov    %rdx,(%rax)
+  4009be:	48 8b 55 18          	mov    0x18(%rbp),%rdx
+  4009c2:	48 89 50 08          	mov    %rdx,0x8(%rax)
+  4009c6:	48 8b 55 20          	mov    0x20(%rbp),%rdx
+  4009ca:	48 89 50 10          	mov    %rdx,0x10(%rax)
+  4009ce:	48 8b 55 28          	mov    0x28(%rbp),%rdx
+  4009d2:	48 89 50 18          	mov    %rdx,0x18(%rax)
+  4009d6:	48 8b 55 30          	mov    0x30(%rbp),%rdx
+  4009da:	48 89 50 20          	mov    %rdx,0x20(%rax)
+  4009de:	eb 3a                	jmp    400a1a <stdout-0x2015f6>
+  4009e0:	48 8b 05 29 16 20 00 	mov    0x201629(%rip),%rax        # 602010 <stdout>
+  4009e7:	48 89 c7             	mov    %rax,%rdi
+  4009ea:	e8 69 fd ff ff       	callq  400758 <stdout-0x2018b8>
+  4009ef:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  4009f3:	48 8b 55 10          	mov    0x10(%rbp),%rdx
+  4009f7:	48 89 10             	mov    %rdx,(%rax)
+  4009fa:	48 8b 55 18          	mov    0x18(%rbp),%rdx
+  4009fe:	48 89 50 08          	mov    %rdx,0x8(%rax)
+  400a02:	48 8b 55 20          	mov    0x20(%rbp),%rdx
+  400a06:	48 89 50 10          	mov    %rdx,0x10(%rax)
+  400a0a:	48 8b 55 28          	mov    0x28(%rbp),%rdx
+  400a0e:	48 89 50 18          	mov    %rdx,0x18(%rax)
+  400a12:	48 8b 55 30          	mov    0x30(%rbp),%rdx
+  400a16:	48 89 50 20          	mov    %rdx,0x20(%rax)
+  400a1a:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+  400a1e:	c9                   	leaveq 
+  400a1f:	c3                   	retq   
+  400a20:	55                   	push   %rbp
+  400a21:	48 89 e5             	mov    %rsp,%rbp
+  400a24:	48 83 ec 10          	sub    $0x10,%rsp
+  400a28:	c7 45 f8 00 00 00 00 	movl   $0x0,-0x8(%rbp)
+  400a2f:	bf 30 10 40 00       	mov    $0x401030,%edi
+  400a34:	e8 d7 fc ff ff       	callq  400710 <stdout-0x201900>
+  400a39:	bf 4b 10 40 00       	mov    $0x40104b,%edi
+  400a3e:	e8 cd fc ff ff       	callq  400710 <stdout-0x201900>
+  400a43:	bf 66 10 40 00       	mov    $0x401066,%edi
+  400a48:	e8 c3 fc ff ff       	callq  400710 <stdout-0x201900>
+  400a4d:	bf 3e 00 00 00       	mov    $0x3e,%edi
+  400a52:	e8 a9 fc ff ff       	callq  400700 <stdout-0x201910>
+  400a57:	48 8b 05 b2 15 20 00 	mov    0x2015b2(%rip),%rax        # 602010 <stdout>
+  400a5e:	48 89 c7             	mov    %rax,%rdi
+  400a61:	e8 f2 fc ff ff       	callq  400758 <stdout-0x2018b8>
+  400a66:	48 8d 45 f8          	lea    -0x8(%rbp),%rax
+  400a6a:	ba 05 00 00 00       	mov    $0x5,%edx
+  400a6f:	48 89 c6             	mov    %rax,%rsi
+  400a72:	bf 00 00 00 00       	mov    $0x0,%edi
+  400a77:	e8 b4 fc ff ff       	callq  400730 <stdout-0x2018e0>
+  400a7c:	48 8d 45 f8          	lea    -0x8(%rbp),%rax
+  400a80:	48 89 c7             	mov    %rax,%rdi
+  400a83:	e8 d8 fc ff ff       	callq  400760 <stdout-0x2018b0>
+  400a88:	89 45 fc             	mov    %eax,-0x4(%rbp)
+  400a8b:	8b 45 fc             	mov    -0x4(%rbp),%eax
+  400a8e:	c9                   	leaveq 
+  400a8f:	c3                   	retq   
+  400a90:	55                   	push   %rbp
+  400a91:	48 89 e5             	mov    %rsp,%rbp
+  400a94:	48 83 ec 30          	sub    $0x30,%rsp
+  400a98:	48 89 7d d8          	mov    %rdi,-0x28(%rbp)
+  400a9c:	89 75 d4             	mov    %esi,-0x2c(%rbp)
+  400a9f:	48 8d 45 e0          	lea    -0x20(%rbp),%rax
+  400aa3:	ba 14 00 00 00       	mov    $0x14,%edx
+  400aa8:	be 00 00 00 00       	mov    $0x0,%esi
+  400aad:	48 89 c7             	mov    %rax,%rdi
+  400ab0:	e8 73 fc ff ff       	callq  400728 <stdout-0x2018e8>
+  400ab5:	8b 45 d4             	mov    -0x2c(%rbp),%eax
+  400ab8:	48 63 d0             	movslq %eax,%rdx
+  400abb:	48 8b 4d d8          	mov    -0x28(%rbp),%rcx
+  400abf:	48 8d 45 e0          	lea    -0x20(%rbp),%rax
+  400ac3:	48 89 ce             	mov    %rcx,%rsi
+  400ac6:	48 89 c7             	mov    %rax,%rdi
+  400ac9:	e8 7a fc ff ff       	callq  400748 <stdout-0x2018c8>
+  400ace:	90                   	nop
+  400acf:	c9                   	leaveq 
+  400ad0:	c3                   	retq   
+  400ad1:	55                   	push   %rbp
+  400ad2:	48 89 e5             	mov    %rsp,%rbp
+  400ad5:	48 8d 7d 10          	lea    0x10(%rbp),%rdi
+  400ad9:	b8 00 00 00 00       	mov    $0x0,%eax
+  400ade:	e8 3d fc ff ff       	callq  400720 <stdout-0x2018f0>
+  400ae3:	48 8d 45 24          	lea    0x24(%rbp),%rax
+  400ae7:	48 89 c7             	mov    %rax,%rdi
+  400aea:	b8 00 00 00 00       	mov    $0x0,%eax
+  400aef:	e8 2c fc ff ff       	callq  400720 <stdout-0x2018f0>
+  400af4:	90                   	nop
+  400af5:	5d                   	pop    %rbp
+  400af6:	c3                   	retq   
+  400af7:	55                   	push   %rbp
+  400af8:	48 89 e5             	mov    %rsp,%rbp
+  400afb:	48 83 ec 30          	sub    $0x30,%rsp
+  400aff:	48 89 7d d8          	mov    %rdi,-0x28(%rbp)
+  400b03:	bf 2c 01 00 00       	mov    $0x12c,%edi
+  400b08:	e8 43 fc ff ff       	callq  400750 <stdout-0x2018c0>
+  400b0d:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  400b11:	bf 2c 01 00 00       	mov    $0x12c,%edi
+  400b16:	e8 35 fc ff ff       	callq  400750 <stdout-0x2018c0>
+  400b1b:	48 89 45 f0          	mov    %rax,-0x10(%rbp)
+  400b1f:	bf 78 10 40 00       	mov    $0x401078,%edi
+  400b24:	e8 e7 fb ff ff       	callq  400710 <stdout-0x201900>
+  400b29:	48 8b 05 e0 14 20 00 	mov    0x2014e0(%rip),%rax        # 602010 <stdout>
+  400b30:	48 89 c7             	mov    %rax,%rdi
+  400b33:	e8 20 fc ff ff       	callq  400758 <stdout-0x2018b8>
+  400b38:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+  400b3c:	ba 2c 01 00 00       	mov    $0x12c,%edx
+  400b41:	48 89 c6             	mov    %rax,%rsi
+  400b44:	bf 00 00 00 00       	mov    $0x0,%edi
+  400b49:	e8 e2 fb ff ff       	callq  400730 <stdout-0x2018e0>
+  400b4e:	88 45 ef             	mov    %al,-0x11(%rbp)
+  400b51:	80 7d ef 00          	cmpb   $0x0,-0x11(%rbp)
+  400b55:	7e 6c                	jle    400bc3 <stdout-0x20144d>
+  400b57:	80 7d ef 14          	cmpb   $0x14,-0x11(%rbp)
+  400b5b:	7f 66                	jg     400bc3 <stdout-0x20144d>
+  400b5d:	ba 14 00 00 00       	mov    $0x14,%edx
+  400b62:	be 00 00 00 00       	mov    $0x0,%esi
+  400b67:	48 8d 7d 10          	lea    0x10(%rbp),%rdi
+  400b6b:	e8 b8 fb ff ff       	callq  400728 <stdout-0x2018e8>
+  400b70:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+  400b74:	48 89 c6             	mov    %rax,%rsi
+  400b77:	48 8d 7d 10          	lea    0x10(%rbp),%rdi
+  400b7b:	e8 88 fb ff ff       	callq  400708 <stdout-0x201908>
+  400b80:	bf a8 10 40 00       	mov    $0x4010a8,%edi
+  400b85:	e8 86 fb ff ff       	callq  400710 <stdout-0x201900>
+  400b8a:	48 8b 05 7f 14 20 00 	mov    0x20147f(%rip),%rax        # 602010 <stdout>
+  400b91:	48 89 c7             	mov    %rax,%rdi
+  400b94:	e8 bf fb ff ff       	callq  400758 <stdout-0x2018b8>
+  400b99:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  400b9d:	ba 2c 01 00 00       	mov    $0x12c,%edx
+  400ba2:	48 89 c6             	mov    %rax,%rsi
+  400ba5:	bf 00 00 00 00       	mov    $0x0,%edi
+  400baa:	e8 81 fb ff ff       	callq  400730 <stdout-0x2018e0>
+  400baf:	89 45 e8             	mov    %eax,-0x18(%rbp)
+  400bb2:	8b 45 e8             	mov    -0x18(%rbp),%eax
+  400bb5:	88 45 e7             	mov    %al,-0x19(%rbp)
+  400bb8:	80 7d e7 00          	cmpb   $0x0,-0x19(%rbp)
+  400bbc:	75 4e                	jne    400c0c <stdout-0x201404>
+  400bbe:	e9 cb 00 00 00       	jmpq   400c8e <stdout-0x201382>
+  400bc3:	bf d8 10 40 00       	mov    $0x4010d8,%edi
+  400bc8:	e8 43 fb ff ff       	callq  400710 <stdout-0x201900>
+  400bcd:	48 8b 05 3c 14 20 00 	mov    0x20143c(%rip),%rax        # 602010 <stdout>
+  400bd4:	48 89 c7             	mov    %rax,%rdi
+  400bd7:	e8 7c fb ff ff       	callq  400758 <stdout-0x2018b8>
+  400bdc:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  400be0:	48 8b 55 10          	mov    0x10(%rbp),%rdx
+  400be4:	48 89 10             	mov    %rdx,(%rax)
+  400be7:	48 8b 55 18          	mov    0x18(%rbp),%rdx
+  400beb:	48 89 50 08          	mov    %rdx,0x8(%rax)
+  400bef:	48 8b 55 20          	mov    0x20(%rbp),%rdx
+  400bf3:	48 89 50 10          	mov    %rdx,0x10(%rax)
+  400bf7:	48 8b 55 28          	mov    0x28(%rbp),%rdx
+  400bfb:	48 89 50 18          	mov    %rdx,0x18(%rax)
+  400bff:	48 8b 55 30          	mov    0x30(%rbp),%rdx
+  400c03:	48 89 50 20          	mov    %rdx,0x20(%rax)
+  400c07:	e9 c6 00 00 00       	jmpq   400cd2 <stdout-0x20133e>
+  400c0c:	80 7d e7 14          	cmpb   $0x14,-0x19(%rbp)
+  400c10:	77 7c                	ja     400c8e <stdout-0x201382>
+  400c12:	48 8d 45 24          	lea    0x24(%rbp),%rax
+  400c16:	ba 14 00 00 00       	mov    $0x14,%edx
+  400c1b:	be 00 00 00 00       	mov    $0x0,%esi
+  400c20:	48 89 c7             	mov    %rax,%rdi
+  400c23:	e8 00 fb ff ff       	callq  400728 <stdout-0x2018e8>
+  400c28:	8b 55 e8             	mov    -0x18(%rbp),%edx
+  400c2b:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  400c2f:	89 d6                	mov    %edx,%esi
+  400c31:	48 89 c7             	mov    %rax,%rdi
+  400c34:	e8 57 fe ff ff       	callq  400a90 <stdout-0x201580>
+  400c39:	8b 45 e8             	mov    -0x18(%rbp),%eax
+  400c3c:	48 63 d0             	movslq %eax,%rdx
+  400c3f:	48 8b 4d f8          	mov    -0x8(%rbp),%rcx
+  400c43:	48 8d 45 24          	lea    0x24(%rbp),%rax
+  400c47:	48 89 ce             	mov    %rcx,%rsi
+  400c4a:	48 89 c7             	mov    %rax,%rdi
+  400c4d:	e8 f6 fa ff ff       	callq  400748 <stdout-0x2018c8>
+  400c52:	48 8b 05 b7 13 20 00 	mov    0x2013b7(%rip),%rax        # 602010 <stdout>
+  400c59:	48 89 c7             	mov    %rax,%rdi
+  400c5c:	e8 f7 fa ff ff       	callq  400758 <stdout-0x2018b8>
+  400c61:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  400c65:	48 8b 55 10          	mov    0x10(%rbp),%rdx
+  400c69:	48 89 10             	mov    %rdx,(%rax)
+  400c6c:	48 8b 55 18          	mov    0x18(%rbp),%rdx
+  400c70:	48 89 50 08          	mov    %rdx,0x8(%rax)
+  400c74:	48 8b 55 20          	mov    0x20(%rbp),%rdx
+  400c78:	48 89 50 10          	mov    %rdx,0x10(%rax)
+  400c7c:	48 8b 55 28          	mov    0x28(%rbp),%rdx
+  400c80:	48 89 50 18          	mov    %rdx,0x18(%rax)
+  400c84:	48 8b 55 30          	mov    0x30(%rbp),%rdx
+  400c88:	48 89 50 20          	mov    %rdx,0x20(%rax)
+  400c8c:	eb 44                	jmp    400cd2 <stdout-0x20133e>
+  400c8e:	bf d8 10 40 00       	mov    $0x4010d8,%edi
+  400c93:	e8 78 fa ff ff       	callq  400710 <stdout-0x201900>
+  400c98:	48 8b 05 71 13 20 00 	mov    0x201371(%rip),%rax        # 602010 <stdout>
+  400c9f:	48 89 c7             	mov    %rax,%rdi
+  400ca2:	e8 b1 fa ff ff       	callq  400758 <stdout-0x2018b8>
+  400ca7:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  400cab:	48 8b 55 10          	mov    0x10(%rbp),%rdx
+  400caf:	48 89 10             	mov    %rdx,(%rax)
+  400cb2:	48 8b 55 18          	mov    0x18(%rbp),%rdx
+  400cb6:	48 89 50 08          	mov    %rdx,0x8(%rax)
+  400cba:	48 8b 55 20          	mov    0x20(%rbp),%rdx
+  400cbe:	48 89 50 10          	mov    %rdx,0x10(%rax)
+  400cc2:	48 8b 55 28          	mov    0x28(%rbp),%rdx
+  400cc6:	48 89 50 18          	mov    %rdx,0x18(%rax)
+  400cca:	48 8b 55 30          	mov    0x30(%rbp),%rdx
+  400cce:	48 89 50 20          	mov    %rdx,0x20(%rax)
+  400cd2:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+  400cd6:	c9                   	leaveq 
+  400cd7:	c3                   	retq   
+  400cd8:	55                   	push   %rbp
+  400cd9:	48 89 e5             	mov    %rsp,%rbp
+  400cdc:	bf fc 10 40 00       	mov    $0x4010fc,%edi
+  400ce1:	e8 2a fa ff ff       	callq  400710 <stdout-0x201900>
+  400ce6:	90                   	nop
+  400ce7:	5d                   	pop    %rbp
+  400ce8:	c3                   	retq   
+  400ce9:	55                   	push   %rbp
+  400cea:	48 89 e5             	mov    %rsp,%rbp
+  400ced:	48 8b 05 2c 13 20 00 	mov    0x20132c(%rip),%rax        # 602020 <stdin>
+  400cf4:	be 00 00 00 00       	mov    $0x0,%esi
+  400cf9:	48 89 c7             	mov    %rax,%rdi
+  400cfc:	e8 17 fa ff ff       	callq  400718 <stdout-0x2018f8>
+  400d01:	b8 00 00 00 00       	mov    $0x0,%eax
+  400d06:	e8 15 fd ff ff       	callq  400a20 <stdout-0x2015f0>
+  400d0b:	83 f8 02             	cmp    $0x2,%eax
+  400d0e:	74 28                	je     400d38 <stdout-0x2012d8>
+  400d10:	83 f8 03             	cmp    $0x3,%eax
+  400d13:	74 45                	je     400d5a <stdout-0x2012b6>
+  400d15:	83 f8 01             	cmp    $0x1,%eax
+  400d18:	75 4c                	jne    400d66 <stdout-0x2012aa>
+  400d1a:	48 83 ec 08          	sub    $0x8,%rsp
+  400d1e:	ff 75 30             	pushq  0x30(%rbp)
+  400d21:	ff 75 28             	pushq  0x28(%rbp)
+  400d24:	ff 75 20             	pushq  0x20(%rbp)
+  400d27:	ff 75 18             	pushq  0x18(%rbp)
+  400d2a:	ff 75 10             	pushq  0x10(%rbp)
+  400d2d:	e8 9f fd ff ff       	callq  400ad1 <stdout-0x20153f>
+  400d32:	48 83 c4 30          	add    $0x30,%rsp
+  400d36:	eb 48                	jmp    400d80 <stdout-0x201290>
+  400d38:	48 83 ec 08          	sub    $0x8,%rsp
+  400d3c:	ff 75 30             	pushq  0x30(%rbp)
+  400d3f:	ff 75 28             	pushq  0x28(%rbp)
+  400d42:	ff 75 20             	pushq  0x20(%rbp)
+  400d45:	ff 75 18             	pushq  0x18(%rbp)
+  400d48:	ff 75 10             	pushq  0x10(%rbp)
+  400d4b:	48 8d 7d 10          	lea    0x10(%rbp),%rdi
+  400d4f:	e8 a3 fd ff ff       	callq  400af7 <stdout-0x201519>
+  400d54:	48 83 c4 30          	add    $0x30,%rsp
+  400d58:	eb 26                	jmp    400d80 <stdout-0x201290>
+  400d5a:	b8 00 00 00 00       	mov    $0x0,%eax
+  400d5f:	e8 74 ff ff ff       	callq  400cd8 <stdout-0x201338>
+  400d64:	eb 2e                	jmp    400d94 <stdout-0x20127c>
+  400d66:	bf 06 11 40 00       	mov    $0x401106,%edi
+  400d6b:	e8 a0 f9 ff ff       	callq  400710 <stdout-0x201900>
+  400d70:	48 8b 05 99 12 20 00 	mov    0x201299(%rip),%rax        # 602010 <stdout>
+  400d77:	48 89 c7             	mov    %rax,%rdi
+  400d7a:	e8 d9 f9 ff ff       	callq  400758 <stdout-0x2018b8>
+  400d7f:	90                   	nop
+  400d80:	48 8b 05 89 12 20 00 	mov    0x201289(%rip),%rax        # 602010 <stdout>
+  400d87:	48 89 c7             	mov    %rax,%rdi
+  400d8a:	e8 c9 f9 ff ff       	callq  400758 <stdout-0x2018b8>
+  400d8f:	e9 6d ff ff ff       	jmpq   400d01 <stdout-0x20130f>
+  400d94:	c9                   	leaveq 
+  400d95:	c3                   	retq   
+  400d96:	55                   	push   %rbp
+  400d97:	48 89 e5             	mov    %rsp,%rbp
+  400d9a:	48 83 ec 70          	sub    $0x70,%rsp
+  400d9e:	89 7d 9c             	mov    %edi,-0x64(%rbp)
+  400da1:	48 89 75 90          	mov    %rsi,-0x70(%rbp)
+  400da5:	48 c7 45 d0 30 00 00 	movq   $0x30,-0x30(%rbp)
+  400dac:	00 
+  400dad:	48 c7 45 d8 00 00 00 	movq   $0x0,-0x28(%rbp)
+  400db4:	00 
+  400db5:	c7 45 e0 00 00 00 00 	movl   $0x0,-0x20(%rbp)
+  400dbc:	48 c7 45 e4 30 00 00 	movq   $0x30,-0x1c(%rbp)
+  400dc3:	00 
+  400dc4:	48 c7 45 ec 00 00 00 	movq   $0x0,-0x14(%rbp)
+  400dcb:	00 
+  400dcc:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%rbp)
+  400dd3:	b8 00 00 00 00       	mov    $0x0,%eax
+  400dd8:	e8 89 fa ff ff       	callq  400866 <stdout-0x2017aa>
+  400ddd:	48 8d 45 a0          	lea    -0x60(%rbp),%rax
+  400de1:	48 83 ec 08          	sub    $0x8,%rsp
+  400de5:	ff 75 f0             	pushq  -0x10(%rbp)
+  400de8:	ff 75 e8             	pushq  -0x18(%rbp)
+  400deb:	ff 75 e0             	pushq  -0x20(%rbp)
+  400dee:	ff 75 d8             	pushq  -0x28(%rbp)
+  400df1:	ff 75 d0             	pushq  -0x30(%rbp)
+  400df4:	48 89 c7             	mov    %rax,%rdi
+  400df7:	e8 b2 fa ff ff       	callq  4008ae <stdout-0x201762>
+  400dfc:	48 83 c4 30          	add    $0x30,%rsp
+  400e00:	0f b6 45 a0          	movzbl -0x60(%rbp),%eax
+  400e04:	3c 30                	cmp    $0x30,%al
+  400e06:	74 1b                	je     400e23 <stdout-0x2011ed>
+  400e08:	bf 14 11 40 00       	mov    $0x401114,%edi
+  400e0d:	e8 fe f8 ff ff       	callq  400710 <stdout-0x201900>
+  400e12:	48 8b 05 f7 11 20 00 	mov    0x2011f7(%rip),%rax        # 602010 <stdout>
+  400e19:	48 89 c7             	mov    %rax,%rdi
+  400e1c:	e8 37 f9 ff ff       	callq  400758 <stdout-0x2018b8>
+  400e21:	eb 1b                	jmp    400e3e <stdout-0x2011d2>
+  400e23:	bf 27 11 40 00       	mov    $0x401127,%edi
+  400e28:	e8 e3 f8 ff ff       	callq  400710 <stdout-0x201900>
+  400e2d:	48 8b 05 dc 11 20 00 	mov    0x2011dc(%rip),%rax        # 602010 <stdout>
+  400e34:	48 89 c7             	mov    %rax,%rdi
+  400e37:	e8 1c f9 ff ff       	callq  400758 <stdout-0x2018b8>
+  400e3c:	eb 9f                	jmp    400ddd <stdout-0x201233>
+  400e3e:	48 83 ec 08          	sub    $0x8,%rsp
+  400e42:	ff 75 c0             	pushq  -0x40(%rbp)
+  400e45:	ff 75 b8             	pushq  -0x48(%rbp)
+  400e48:	ff 75 b0             	pushq  -0x50(%rbp)
+  400e4b:	ff 75 a8             	pushq  -0x58(%rbp)
+  400e4e:	ff 75 a0             	pushq  -0x60(%rbp)
+  400e51:	e8 93 fe ff ff       	callq  400ce9 <stdout-0x201327>
+  400e56:	48 83 c4 30          	add    $0x30,%rsp
+  400e5a:	b8 00 00 00 00       	mov    $0x0,%eax
+  400e5f:	c9                   	leaveq 
+  400e60:	c3                   	retq   
+  400e61:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
+  400e68:	00 00 00 
+  400e6b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+  400e70:	41 57                	push   %r15
+  400e72:	41 56                	push   %r14
+  400e74:	41 89 ff             	mov    %edi,%r15d
+  400e77:	41 55                	push   %r13
+  400e79:	41 54                	push   %r12
+  400e7b:	4c 8d 25 26 0f 20 00 	lea    0x200f26(%rip),%r12        # 601da8 <stdout-0x268>
+  400e82:	55                   	push   %rbp
+  400e83:	48 8d 2d 26 0f 20 00 	lea    0x200f26(%rip),%rbp        # 601db0 <stdout-0x260>
+  400e8a:	53                   	push   %rbx
+  400e8b:	49 89 f6             	mov    %rsi,%r14
+  400e8e:	49 89 d5             	mov    %rdx,%r13
+  400e91:	31 db                	xor    %ebx,%ebx
+  400e93:	4c 29 e5             	sub    %r12,%rbp
+  400e96:	48 83 ec 08          	sub    $0x8,%rsp
+  400e9a:	48 c1 fd 03          	sar    $0x3,%rbp
+  400e9e:	e8 2d f8 ff ff       	callq  4006d0 <stdout-0x201940>
+  400ea3:	48 85 ed             	test   %rbp,%rbp
+  400ea6:	74 1e                	je     400ec6 <stdout-0x20114a>
+  400ea8:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+  400eaf:	00 
+  400eb0:	4c 89 ea             	mov    %r13,%rdx
+  400eb3:	4c 89 f6             	mov    %r14,%rsi
+  400eb6:	44 89 ff             	mov    %r15d,%edi
+  400eb9:	41 ff 14 dc          	callq  *(%r12,%rbx,8)
+  400ebd:	48 83 c3 01          	add    $0x1,%rbx
+  400ec1:	48 39 eb             	cmp    %rbp,%rbx
+  400ec4:	75 ea                	jne    400eb0 <stdout-0x201160>
+  400ec6:	48 83 c4 08          	add    $0x8,%rsp
+  400eca:	5b                   	pop    %rbx
+  400ecb:	5d                   	pop    %rbp
+  400ecc:	41 5c                	pop    %r12
+  400ece:	41 5d                	pop    %r13
+  400ed0:	41 5e                	pop    %r14
+  400ed2:	41 5f                	pop    %r15
+  400ed4:	c3                   	retq   
+  400ed5:	90                   	nop
+  400ed6:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
+  400edd:	00 00 00 
+  400ee0:	f3 c3                	repz retq 
+
+Disassembly of section .fini:
+
+0000000000400ee4 <.fini>:
+  400ee4:	48 83 ec 08          	sub    $0x8,%rsp
+  400ee8:	48 83 c4 08          	add    $0x8,%rsp
+  400eec:	c3                   	retq   
