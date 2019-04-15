@@ -22,3 +22,6 @@ int __cdecl main(int argc, const char **argv, const char **envp)
 .rodata:080485F2                 db    0
 ```
 然后向分配的地址中写入数据，最后返回v6处的函数，很明显，这题就是要构造shellcode
+## 解答
+然后这题直接搜索float shellcode就可以找到原题了。
+问题在于使用整形去控制浮点类型的数是有范围的，所以需要很精确的选择shellcode，和填充指令，比较复杂，以后有机会再去研究吧``
